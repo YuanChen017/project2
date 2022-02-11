@@ -1,10 +1,13 @@
 import "./signupmodal.css";
 import { useState } from "react";
 import { personalProjectApi } from "../../../common/accapi";
+import { checksign, checklogin } from "../../../actions";
+import { useDispatch } from "react-redux";
 
-const Signupmodal = ({ setIslogin, setIssignup }) => {
+const Signupmodal = () => {
   const [signupemail, setsignupemail] = useState("");
   const [signuppassword, setsignuppassword] = useState("");
+  const dispatch = useDispatch();
   const signupacc = () => {
     let didsignup = "";
     personalProjectApi
@@ -29,8 +32,7 @@ const Signupmodal = ({ setIslogin, setIssignup }) => {
         <button
           id="closebutton"
           onClick={() => {
-            setIssignup(false);
-            setIslogin(true);
+            checksign(dispatch)(false);
           }}
         >
           {" "}
@@ -66,8 +68,8 @@ const Signupmodal = ({ setIslogin, setIssignup }) => {
             Already have and account{" "}
             <a
               onClick={() => {
-                setIssignup(false);
-                setIslogin(true);
+                checksign(dispatch)(false);
+                checklogin(dispatch)(true);
               }}
             >
               Sign in

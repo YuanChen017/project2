@@ -1,0 +1,6 @@
+export const CHECK_USER_IS_LOGIN = "CHECK_USER_IS_LOGIN";
+export const CHECK_IS_LOGIN = "CHECK_IS_LOGIN";
+export const CHECK_IS_SIGNUP = "CHECK_IS_SIGNUP";
+export const CHECK_IS_RESET = "CHECK_IS_RESET";
+export const CHECK_IS_EMAIL = "CHECK_IS_EMAIL";
+export const CHECK_IS_PRODUCT = "CHECK_IS_PRODUCT";

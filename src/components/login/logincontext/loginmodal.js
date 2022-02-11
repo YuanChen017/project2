@@ -1,16 +1,19 @@
 import { useState, useRef } from "react";
 import "./loginmodal.css";
+import {
+  checkUser,
+  checklogin,
+  checksign,
+  checkPwreset,
+} from "../../../actions";
+import { useDispatch } from "react-redux";
 import { personalProjectApi, emailReg } from "../../../common/accapi";
 
-const Loginmodal = ({
-  setIsUser,
-  setIslogin,
-  setIssignup,
-  setPasswordreset,
-}) => {
+const Loginmodal = () => {
   const [isemail, setIsemail] = useState("");
   const [ispassword, setIspassword] = useState("");
   const validation = useRef(null);
+  const dispatch = useDispatch();
 
   const valid = () => {
     const inputid = document.getElementById(validation.current.id);
@@ -37,7 +40,7 @@ const Loginmodal = ({
           result = res.status;
           console.log(result);
           if (result === true) {
-            setIsUser(true);
+            checkUser(dispatch)(true);
           }
         })
       )
@@ -49,7 +52,7 @@ const Loginmodal = ({
     <div className="modalborder">
       <div className="title">
         <h1>Sign in to your account</h1>
-        <button id="closebutton" onClick={() => setIslogin(false)}>
+        <button id="closebutton" onClick={() => checklogin(dispatch)(false)}>
           {" "}
           X{" "}
         </button>
@@ -86,7 +89,7 @@ const Loginmodal = ({
             Dont have an account?{" "}
             <a
               onClick={() => {
-                setIssignup(true);
+                checksign(dispatch)(true);
               }}
             >
               Sign up
@@ -94,8 +97,7 @@ const Loginmodal = ({
           </p>
           <a
             onClick={() => {
-              setIslogin(false);
-              setPasswordreset(true);
+              checkPwreset(dispatch)(true);
             }}
             id="resetpassword"
           >

@@ -5,7 +5,7 @@ export const personalProjectApi = {
   users: {
     "yuanc710@gmail.com": {
       email: "yuanc710@gmail.com",
-      password: "Yuanchen710",
+      password: "1111111",
     },
     "user2@gmail.com": {
       email: "user2@gmail.com",

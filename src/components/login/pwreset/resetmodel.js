@@ -1,10 +1,12 @@
 import "./resetmodal.css";
 import { useState } from "react";
 import { personalProjectApi } from "../../../common/accapi";
+import { useDispatch } from "react-redux";
+import { checkemail, checkPwreset } from "../../../actions";
 
-const ResetModal = ({ setPasswordreset, setIssend }) => {
+const ResetModal = () => {
   const [existemail, setExistemail] = useState("");
-
+  const dispatch = useDispatch();
   const checkexisted = () => {
     let checkresult = "";
     personalProjectApi
@@ -14,8 +16,7 @@ const ResetModal = ({ setPasswordreset, setIssend }) => {
           checkresult = res.status;
           console.log(checkresult);
           if (checkresult === true) {
-            setIssend(true);
-            setPasswordreset(false);
+            checkemail(dispatch)(true);
           }
         })
       )
@@ -27,7 +28,7 @@ const ResetModal = ({ setPasswordreset, setIssend }) => {
     <div className="modalborder">
       <div className="title">
         <h1>Update your password</h1>
-        <button id="closebutton" onClick={() => setPasswordreset(false)}>
+        <button id="closebutton" onClick={() => checkPwreset(dispatch)(false)}>
           {" "}
           X{" "}
         </button>

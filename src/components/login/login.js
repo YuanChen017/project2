@@ -1,30 +1,20 @@
 import Loginmodal from "./logincontext/loginmodal";
 import Signupmodal from "./signupcontext/signup";
-import { useState } from "react";
 import ResetModal from "./pwreset/resetmodel";
 import Sendmail from "./sendmail/sendmail";
+import { useSelector } from "react-redux";
 
-const Login = ({ setIsUser, setIslogin, islogin }) => {
-  const [issignup, setIssignup] = useState(false);
-  const [passwordreset, setPasswordreset] = useState(false);
-  const [issend, setIssend] = useState(false);
+const Login = () => {
+  const islogin = useSelector((state) => state.islogin);
+  const issignup = useSelector((state) => state.issignup);
+  const ispwreset = useSelector((state) => state.ispwreset);
+  const isemail = useSelector((state) => state.isemail);
   return (
     <>
-      {islogin && (
-        <Loginmodal
-          setIsUser={setIsUser}
-          setIslogin={setIslogin}
-          setIssignup={setIssignup}
-          setPasswordreset={setPasswordreset}
-        />
-      )}
-      {issignup && (
-        <Signupmodal setIslogin={setIslogin} setIssignup={setIssignup} />
-      )}
-      {passwordreset && (
-        <ResetModal setPasswordreset={setPasswordreset} setIssend={setIssend} />
-      )}
-      {issend && <Sendmail setIssend={setIssend} setIslogin={setIslogin} />}
+      {islogin && <Loginmodal />}
+      {issignup && <Signupmodal />}
+      {ispwreset && <ResetModal />}
+      {isemail && <Sendmail />}
     </>
   );
 };

@@ -1,0 +1,32 @@
+.wholedesktop {
+  width: 90vw;
+  height: 80vh;
+  position: absolute;
+  top: 10vh;
+  left: 5vw;
+  overflow-y: scroll;
+}
+
+.desktop-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 3.7vw;
+}
+
+.homebody {
+  width: 1323px;
+  height: 682px;
+  background-color: #fff;
+  margin: auto;
+  position: relative;
+}
+
+.homebody img {
+  width: 1000px;
+  height: 500px;
+  position: absolute;
+  top: 10%;
+  left: 10%;
+}

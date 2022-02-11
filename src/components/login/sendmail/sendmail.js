@@ -1,15 +1,18 @@
 import "./sendmail.css";
 import maillogo from "../sendmail/Vector.png";
+import { useDispatch } from "react-redux";
+import { checkemail, checklogin } from "../../../actions";
 
-const Sendmail = ({ setIslogin, setIssend }) => {
+const Sendmail = () => {
+  const dispatch = useDispatch();
   return (
     <div className="modalborder-mail">
       <div className="title">
         <button
           id="closebutton"
           onClick={() => {
-            setIslogin(true);
-            setIssend(false);
+            checklogin(dispatch)(true);
+            checkemail(dispatch)(false);
           }}
         >
           {" "}
