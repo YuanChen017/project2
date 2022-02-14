@@ -1,7 +1,7 @@
 import "./sendmail.css";
 import maillogo from "../sendmail/Vector.png";
 import { useDispatch } from "react-redux";
-import { checkemail, checklogin } from "../../../actions";
+import { checkemail, checklogin } from "../../../actions/statecheck";
 
 const Sendmail = () => {
   const dispatch = useDispatch();

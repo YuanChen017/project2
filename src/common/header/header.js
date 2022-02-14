@@ -1,17 +1,22 @@
 import { Textfile } from "../Textfile";
 import shoppinglogo from "../header/cart.png";
 import "./header.css";
-import { checklogin } from "../../actions";
+import { checkcart, checklogin } from "../../actions/statecheck";
 import { useDispatch, useSelector } from "react-redux";
 
 const Header = () => {
   const dispatch = useDispatch();
-  const isuser = useSelector((state) => state.isuser);
+  const isuser = useSelector((state) => state.states.isuser);
   const loginhandel = () => {
     if (!isuser) {
       checklogin(dispatch)(true);
     } else {
       checklogin(dispatch)(false);
+    }
+  };
+  const handercart = () => {
+    if (isuser) {
+      checkcart(dispatch)(true);
     }
   };
   return (
@@ -35,7 +40,7 @@ const Header = () => {
           {isuser ? Textfile.SIGN_OUT : Textfile.SIGN_IN}
         </p>
       </div>
-      <div className="price">
+      <div className="price" onClick={handercart}>
         <img src={shoppinglogo} alt="shoppingicon" />
         <p>{Textfile.PRICE}</p>
       </div>

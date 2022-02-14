@@ -1,7 +1,7 @@
 import "./signupmodal.css";
 import { useState } from "react";
 import { personalProjectApi } from "../../../common/accapi";
-import { checksign, checklogin } from "../../../actions";
+import { checksign, checklogin } from "../../../actions/statecheck";
 import { useDispatch } from "react-redux";
 
 const Signupmodal = () => {

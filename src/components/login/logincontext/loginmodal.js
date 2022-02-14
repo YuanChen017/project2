@@ -5,7 +5,7 @@ import {
   checklogin,
   checksign,
   checkPwreset,
-} from "../../../actions";
+} from "../../../actions/statecheck";
 import { useDispatch } from "react-redux";
 import { personalProjectApi, emailReg } from "../../../common/accapi";
 
@@ -48,11 +48,14 @@ const Loginmodal = () => {
         alert(e.message);
       });
   };
+  const handleclosesignin = () => {
+    checklogin(dispatch)(false);
+  };
   return (
     <div className="modalborder">
       <div className="title">
         <h1>Sign in to your account</h1>
-        <button id="closebutton" onClick={() => checklogin(dispatch)(false)}>
+        <button id="closebutton" onClick={handleclosesignin}>
           {" "}
           X{" "}
         </button>

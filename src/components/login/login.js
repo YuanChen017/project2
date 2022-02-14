@@ -5,10 +5,10 @@ import Sendmail from "./sendmail/sendmail";
 import { useSelector } from "react-redux";
 
 const Login = () => {
-  const islogin = useSelector((state) => state.islogin);
-  const issignup = useSelector((state) => state.issignup);
-  const ispwreset = useSelector((state) => state.ispwreset);
-  const isemail = useSelector((state) => state.isemail);
+  const islogin = useSelector((state) => state.states.islogin);
+  const issignup = useSelector((state) => state.states.issignup);
+  const ispwreset = useSelector((state) => state.states.ispwreset);
+  const isemail = useSelector((state) => state.states.isemail);
   return (
     <>
       {islogin && <Loginmodal />}

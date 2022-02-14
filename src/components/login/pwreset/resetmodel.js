@@ -2,7 +2,7 @@ import "./resetmodal.css";
 import { useState } from "react";
 import { personalProjectApi } from "../../../common/accapi";
 import { useDispatch } from "react-redux";
-import { checkemail, checkPwreset } from "../../../actions";
+import { checkemail, checkPwreset } from "../../../actions/statecheck";
 
 const ResetModal = () => {
   const [existemail, setExistemail] = useState("");

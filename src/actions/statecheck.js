@@ -5,41 +5,61 @@ import {
   CHECK_IS_RESET,
   CHECK_IS_EMAIL,
   CHECK_IS_PRODUCT,
+  CHECK_IS_ADDPRODUCT,
+  CHECK_IS_DETAIL,
+  CHECK_CART,
 } from "../helper";
-
+export const checkcart = (dispatch) => (value) => {
+  dispatch({
+    type: CHECK_CART,
+    payload: value,
+  });
+};
 export const checkUser = (dispatch) => (value) => {
   dispatch({
     type: CHECK_USER_IS_LOGIN,
-    payload: { isuser: value },
+    payload: value,
+  });
+};
+export const checkdetail = (dispatch) => (value) => {
+  dispatch({
+    type: CHECK_IS_DETAIL,
+    payload: value,
   });
 };
 export const checklogin = (dispatch) => (value) => {
   dispatch({
     type: CHECK_IS_LOGIN,
-    payload: { islogin: value },
+    payload: value,
   });
 };
 export const checksign = (dispatch) => (value) => {
   dispatch({
     type: CHECK_IS_SIGNUP,
-    payload: { issignup: value },
+    payload: value,
   });
 };
 export const checkPwreset = (dispatch) => (value) => {
   dispatch({
     type: CHECK_IS_RESET,
-    payload: { ispwreset: value },
+    payload: value,
   });
 };
 export const checkemail = (dispatch) => (value) => {
   dispatch({
     type: CHECK_IS_EMAIL,
-    payload: { isemail: value },
+    payload: value,
   });
 };
 export const checkproduct = (dispatch) => (value) => {
   dispatch({
     type: CHECK_IS_PRODUCT,
-    payload: { isproduct: value },
+    payload: value,
+  });
+};
+export const checkaddproduct = (dispatch) => (value) => {
+  dispatch({
+    type: CHECK_IS_ADDPRODUCT,
+    payload: value,
   });
 };

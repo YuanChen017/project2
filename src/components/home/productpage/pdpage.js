@@ -1,9 +1,13 @@
 import "./pdpage.css";
-import moti from "../../home/moti.jpeg";
+import Productitems from "../productitems/items";
+import { useDispatch } from "react-redux";
+import { checkaddproduct } from "../../../actions/statecheck";
 
 const Productpage = () => {
+  const dispatch = useDispatch();
   return (
     <>
+      {}
       <div className="wholedesktop">
         <div className="desktop-header">
           <h1>Product</h1>
@@ -13,13 +17,16 @@ const Productpage = () => {
               <option value="Price:increase">Price: low to high</option>
               <option value="Price:decrease">Price: high to low</option>
             </select>
-            <button id="add-product" onClick={() => {}}>
+            <button
+              id="add-product"
+              onClick={() => checkaddproduct(dispatch)(true)}
+            >
               Add Product
             </button>
           </div>
         </div>
         <div className="homebody">
-          <img src={moti} alt="moti" />
+          <Productitems />
         </div>
       </div>
     </>

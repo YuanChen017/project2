@@ -1,0 +1,42 @@
+.itemdetail {
+    position: absolute;
+    width: 90vw;
+    height: 75vh;
+    top: 10vh;
+    left: 6vw;
+    background-color: white;
+    color: black;
+}
+
+.itemdetail h1 {
+    text-align: left;
+}
+
+.itemdetail h1 span {
+    margin-left: 69vw;
+}
+
+.detailbody {
+    background-color: white;
+    color: black;
+    width: 84vw;
+    height: 65vh;
+    border: 2px solid gray;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.detailimage img {
+    width: 662px;
+    height: 60vh;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.information {
+    text-align: left;
+    margin: 35px;
+    font-family: "Inter", sans-serif;
+}
