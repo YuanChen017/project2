@@ -8,6 +8,7 @@ import {
   CHECK_IS_ADDPRODUCT,
   CHECK_IS_DETAIL,
   CHECK_CART,
+  CHECK_ADDQTY,
 } from "../helper";
 
 const initialstates = {
@@ -20,6 +21,7 @@ const initialstates = {
   isadd: false,
   isdetail: false,
   iscart: false,
+  isaddqty: false,
 };
 export const statereducer = (state = initialstates, { type, payload }) => {
   switch (type) {
@@ -64,6 +66,12 @@ export const statereducer = (state = initialstates, { type, payload }) => {
       checkiscart.isproduct = true;
       checkiscart.iscart = payload;
       return checkiscart;
+    case CHECK_ADDQTY:
+      const checkaddqty = [state];
+      checkaddqty.isuser = true;
+      checkaddqty.isproduct = true;
+      checkaddqty.isaddqty = payload;
+      return checkaddqty;
     default:
       return state;
   }

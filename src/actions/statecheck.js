@@ -8,7 +8,14 @@ import {
   CHECK_IS_ADDPRODUCT,
   CHECK_IS_DETAIL,
   CHECK_CART,
+  CHECK_ADDQTY,
 } from "../helper";
+export const checkqty = (dispatch) => (value) => {
+  dispatch({
+    type: CHECK_ADDQTY,
+    payload: value,
+  });
+};
 export const checkcart = (dispatch) => (value) => {
   dispatch({
     type: CHECK_CART,

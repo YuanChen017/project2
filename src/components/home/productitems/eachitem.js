@@ -1,12 +1,16 @@
 import { useSelector, useDispatch } from "react-redux";
 import { deleteproduct } from "../../../actions/productcheck";
-import { checkdetail } from "../../../actions/statecheck";
+import { checkdetail, checkqty } from "../../../actions/statecheck";
+import { useState } from "react";
 import "./eachitem.css";
 const Eachitem = ({ index }) => {
   const dispatch = useDispatch();
   const image = useSelector((state) => state.product[index].imagelink);
   const name = useSelector((state) => state.product[index].productname);
   const price = useSelector((state) => state.product[index].price);
+  const addtocart = useSelector((state) => state.product[index].addtocart);
+  const isaddqty = useSelector((state) => state.states.isaddqty);
+  const [qty, setQty] = useState(0);
 
   return (
     <>
@@ -34,7 +38,42 @@ const Eachitem = ({ index }) => {
           </p>
         </div>
         <div className="btns">
-          <button id="add">Add</button>
+          <div id="changebtn">
+            {isaddqty ? (
+              <div id="addqty">
+                <p>
+                  <span
+                    onClick={() => {
+                      if (qty <= 0) {
+                        checkqty(dispatch)(false);
+                      }
+                      setQty(qty - 1);
+                    }}
+                  >
+                    -
+                  </span>
+                  {qty}
+                  <span
+                    onClick={() => {
+                      setQty(qty + 1);
+                    }}
+                  >
+                    +
+                  </span>
+                </p>
+              </div>
+            ) : (
+              <button
+                id="add"
+                onClick={() => {
+                  checkqty(dispatch)(true);
+                  setQty(1);
+                }}
+              >
+                Add
+              </button>
+            )}
+          </div>
           <button id="edit">Edit</button>
         </div>
       </div>

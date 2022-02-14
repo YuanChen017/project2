@@ -19,6 +19,7 @@ const AddProduct = () => {
     category: category,
     price: price,
     quantity: qty,
+    addtocart: 0,
     imagelink: imagelink,
   };
   const handlesubmit = () => {
